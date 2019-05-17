@@ -23,7 +23,7 @@ namespace hrmapps.coreapi
       Configuration = configuration;
     }
 
-    
+    readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
@@ -41,7 +41,15 @@ namespace hrmapps.coreapi
       });
 
       //Adding CORS
-      services.AddCors();
+      // services.AddCors();
+      services.AddCors(Options =>
+      {
+        Options.AddPolicy(MyAllowSpecificOrigins, builder =>
+             builder.AllowAnyOrigin()
+                     .AllowAnyHeader()
+                     .AllowAnyMethod()
+        );
+      });
 
     }
 
@@ -74,7 +82,7 @@ namespace hrmapps.coreapi
       app.UseConnectionStringMiddleware();
       //app.UseUserPermissionMiddleware();
       app.UseStatusCodePages();
-
+      app.UseCors(MyAllowSpecificOrigins);
       app.UseMvc();
       
     }

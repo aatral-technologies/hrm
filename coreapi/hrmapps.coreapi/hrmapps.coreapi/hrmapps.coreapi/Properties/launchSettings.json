@@ -7,7 +7,7 @@
       "applicationUrl": "http://localhost:52351",
       "sslPort": 0
     }
-  },A       
+  },     
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
@@ -15,7 +15,7 @@
       "launchUrl": "api/v1.0/heartbeat",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }qqqqqqqqqqqqqqqqqqqqqqqq
+      }
     },
     "apcapps.coreapi": {
       "commandName": "Project",
